@@ -1,0 +1,30 @@
+﻿@page
+@model WebApplication8.Pages.WeatherModel
+@{ }
+
+<div class="text-center">
+    @if (Request.Method == "POST")
+    {
+        <p>Temp: <b> @Model.Weather.Main.Temp℃</b></p>
+        <p>Weather: <b>@Model.Weather.Weather.First().Main</b></p>
+        <p>Condition:<b>@Model.Weather.Weather.First().Description</b></p>
+        <p>Temperature: <b>@Model.Weather.Main.Temp ℃</b></p>
+        <p>Feels like:<b> @Model.Weather.Main.FeelsLike ℃</b></p>
+        <p>Minimum:<b>@Model.Weather.Main.TempMin ℃</b></p>
+        <p>Maximum: <b>@Model.Weather.Main.TempMax ℃</b></p>
+        <p>Wind speed:<b>@Model.Weather.Wind.Speed m/s </b></p>
+        <p>Gusts:<b> @Model.Weather.Wind.Gust m/s</b></p>
+        <p>Pressure: <b>@Model.Weather.Main.Pressure hPa</b></p>
+        <p>Humidity:<b>@Model.Weather.Main.Humidity % </b></p>
+
+    } else {
+        <form method="post" style="width: 40%; margin: auto">
+            <div class="form-group">
+                <label>city:</label>
+                <input type="text" name="city" />
+            </div>
+            <br />
+            <button type="submit">Continue</button>
+        </form>
+    }
+</div>

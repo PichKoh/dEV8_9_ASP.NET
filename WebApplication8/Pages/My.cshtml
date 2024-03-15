@@ -1,0 +1,45 @@
+﻿@page
+@model WebApplication8.Pages.IndexModel
+@{ }
+
+<div class="text-center">
+    <form method="post" style="margin:auto; width:50%" asp-antiforgery="false">
+        <table id="products">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Price</th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (Request.Method == "POST")
+                { 
+                    @foreach (var product in @Model.Components)
+                    {
+                        <tr>
+                            <th>@product.Id</th>
+                            <td>@product.Name</td>
+                            <td>@product.Price</td>
+                        </tr>
+                    }
+                } else {
+                    @for (var i = 0; i < @Model.Count; i++)
+                    {
+                        <tr>
+                            <td><input type="number" name="[@i].Id" value="@i" /></td>
+                            <td><input type="text" name="[@i].Name" value="@i" /></td>
+                            <td><input type="number" name="[@i].Price" value="@i" /></td>
+                        </tr>
+                    }
+                }
+            </tbody>
+        </table>
+        <br />
+        @if (Request.Method == "GET")
+        {
+            <input type="submit" value="Send">
+        }
+    </form>
+    
+</div>

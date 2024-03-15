@@ -1,0 +1,29 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <div class="display-4">
+        Add some products
+    </div>
+    <form method="post" style="margin:auto; width:50%">
+        <div class="form-group">
+            <label>Enter product's name</label>
+            <input type="text" name="name" />
+        </div>
+        <div class="form-group">
+            <label>Enter product's price</label>
+            <input type="number" name="price" />
+        </div>
+        <div class="form-group">
+            <label>Enter product's production date</label>
+            <input type="date" name="createdDate" />
+        </div>
+        <br />
+        <button type="submit" asp-action="Index">Add</button>
+        <button type="submit" asp-action="ViewProductsAsList">View as list</button>
+        <button type="submit" asp-action="ViewProductsAsTable">View as table</button>
+        <div class="display-4">Products added: @Model</div>
+    </form>
+</div>
+
